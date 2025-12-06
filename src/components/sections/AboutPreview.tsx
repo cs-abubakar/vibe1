@@ -58,7 +58,7 @@ export function AboutPreview() {
             >
               Global Educational Consultants (GEC) is a China-based education consultancy
               founded by medical professionals who understand the journey to becoming a doctor.
-              Based in Jingzhou, Hubei, we provide direct access to top Chinese universities
+              Based in China, we provide direct access to top Chinese universities
               and end-to-end support for international students.
             </motion.p>
 

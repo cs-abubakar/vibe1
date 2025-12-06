@@ -163,8 +163,7 @@ function StorySection() {
                 lack of genuine support that students face.
               </p>
               <p>
-                Based in Jingzhou, Hubei, China - we&apos;re not remote agents working from
-                another country. We&apos;re here on the ground, building direct relationships
+                                  Based in China - we&apos;re not remote agents working from                another country. We&apos;re here on the ground, building direct relationships
                 with universities, understanding the local systems, and providing real-time
                 support to our students.
               </p>
@@ -396,12 +395,12 @@ function OfficeSection() {
               variants={fadeInUp}
               className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6"
             >
-              Based in Jingzhou, Hubei
+              Based in China
             </motion.h2>
             <motion.div variants={fadeInUp} className="space-y-4 text-neutral-600 mb-8">
               <p>
                 Unlike remote consultants working from another country, we&apos;re based
-                right here in China. Our office in Jingzhou, Hubei Province, gives us
+                right here in China. Our office in China, gives us
                 direct access to universities and enables us to provide real-time
                 support to our students.
               </p>

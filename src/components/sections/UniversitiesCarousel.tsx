@@ -3,13 +3,15 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { UNIVERSITIES } from "@/lib/constants"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
 import { Button } from "@/components/ui/button"
 
-export function UniversitiesCarousel() {
+export function UniversitiesCarousel({ universities }: { universities: any[] }) {
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2 })
+  
+  // Fallback if empty
+  if (!universities || universities.length === 0) return null;
 
   return (
     <section ref={ref} className="py-16 md:py-20 bg-neutral-100">
@@ -31,7 +33,7 @@ export function UniversitiesCarousel() {
             variants={fadeInUp}
             className="text-2xl md:text-3xl font-bold text-neutral-900 mt-2"
           >
-            14+ Top Universities in China
+            {universities.length}+ Top Universities in China
           </motion.h2>
         </motion.div>
       </div>
@@ -39,7 +41,7 @@ export function UniversitiesCarousel() {
       {/* Infinite Scroll Carousel */}
       <div className="relative overflow-hidden py-4">
         <div className="flex animate-[scroll_40s_linear_infinite] hover:pause">
-          {[...UNIVERSITIES, ...UNIVERSITIES].map((uni, index) => (
+          {[...universities, ...universities].map((uni, index) => (
             <div
               key={`${uni.id}-${index}`}
               className="flex-shrink-0 px-4"
@@ -50,7 +52,7 @@ export function UniversitiesCarousel() {
                   <div className="relative h-40 overflow-hidden">
                     <div className="absolute inset-0 bg-neutral-200 animate-pulse" />
                     <img 
-                      src={uni.image} 
+                      src={uni.image || "https://placehold.co/600x400?text=University"} 
                       alt={uni.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"

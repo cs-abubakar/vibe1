@@ -18,7 +18,7 @@ const features = [
     icon: MapPin,
     title: "On-Ground in China",
     description:
-      "We're based in Jingzhou, China - not remote agents. Direct university access and real-time support when you need it.",
+      "We're based in China - not remote agents. Direct university access and real-time support when you need it.",
     color: "secondary",
   },
   {

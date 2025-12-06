@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model University {
+  id           String   @id @default(cuid())
+  name         String
+  location     String
+  tuitionRange String
+  ranking      String?
+  pmdc         Boolean  @default(false)
+  who          Boolean  @default(false)
+  image        String?
+  description  String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  name       String
+  country    String
+  flag       String
+  program    String
+  university String
+  quote      String
+  rating     Int      @default(5)
+  image      String?
+  createdAt  DateTime @default(now())
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  content   String // HTML or Markdown content
+  excerpt   String?
+  image     String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  program   String?
+  message   String?
+  status    String   @default("PENDING") // PENDING, CONTACTED, CLOSED
+  createdAt DateTime @default(now())
+}
+
+model Program {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique // mbbs, chinese-language, masters-phd, etc.
+  subtitle    String?
+  description String
+  content     String // HTML content for the full page
+  image       String?
+  icon        String?  // lucide icon name or url
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GlobalSettings {
+  id           String   @id @default(cuid())
+  key          String   @unique // e.g., 'site_info'
+  value        String   // JSON string
+  updatedAt    DateTime @updatedAt
+}
+
+model PageContent {
+  id          String   @id @default(cuid())
+  key         String   @unique // e.g. 'home_hero', 'about_mission'
+  title       String?
+  subtitle    String?
+  content     String?
+  image       String?
+  updatedAt   DateTime @updatedAt
+}

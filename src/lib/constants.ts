@@ -4,7 +4,7 @@ export const COMPANY_INFO = {
   name: "Global Educational Consultants",
   shortName: "GEC",
   tagline: "Your Pathway to Global Education",
-  location: "Jingzhou, Hubei, China",
+  location: "China",
   whatsapp: "+923114999954",
   whatsappLink: "https://wa.me/923114999954",
   email: "info@gecpathways.com",

@@ -7,7 +7,15 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { COMPANY_INFO } from "@/lib/constants"
 
-export function Hero() {
+export function Hero({ 
+  title = "Your Medical Career Begins Here",
+  subtitle = "China-based education consultants helping students from Pakistan, Yemen, Saudi Arabia & Africa achieve their MBBS dreams at world-class universities.",
+  image = "https://placehold.co/800x600/1e293b/ffffff?text=Future+Doctor+in+China"
+}: { 
+  title?: string, 
+  subtitle?: string, 
+  image?: string 
+}) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
@@ -58,7 +66,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 mb-8 leading-[1.1] tracking-tight"
             >
-              Your Medical Career{" "}
+              {title.split(' Begins Here')[0]}{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                   Begins Here
@@ -82,7 +90,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              China-based education consultants helping students from Pakistan, Yemen, Saudi Arabia & Africa achieve their MBBS dreams at world-class universities.
+              {subtitle}
             </motion.p>
 
             {/* CTA Group */}
@@ -151,7 +159,7 @@ export function Hero() {
               {/* Main Card */}
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
-                  src="https://placehold.co/800x600/1e293b/ffffff?text=Future+Doctor+in+China" 
+                  src={image}
                   alt="Medical Student in China"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />

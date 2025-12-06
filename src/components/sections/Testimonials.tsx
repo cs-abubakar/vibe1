@@ -3,25 +3,27 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react"
-import { TESTIMONIALS } from "@/lib/constants"
 import { useInView } from "@/hooks/useInView"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
-export function Testimonials() {
+export function Testimonials({ testimonials }: { testimonials: any[] }) {
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2 })
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
 
+  // Fallback if empty
+  if (!testimonials || testimonials.length === 0) return null;
+
   const nextTestimonial = () => {
     setDirection(1)
-    setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length)
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const prevTestimonial = () => {
     setDirection(-1)
-    setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
 
   const variants = {
@@ -103,25 +105,29 @@ export function Testimonials() {
                 <Quote className="w-12 h-12 text-primary-200 mb-6" />
 
                 <p className="text-lg md:text-xl text-neutral-700 mb-8 leading-relaxed">
-                  &ldquo;{TESTIMONIALS[currentIndex].quote}&rdquo;
+                  &ldquo;{testimonials[currentIndex].quote}&rdquo;
                 </p>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
-                    {TESTIMONIALS[currentIndex].name.charAt(0)}
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center text-white text-xl font-bold overflow-hidden relative">
+                     {testimonials[currentIndex].image ? (
+                        <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} className="w-full h-full object-cover" />
+                     ) : (
+                        <span>{testimonials[currentIndex].name.charAt(0)}</span>
+                     )}
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-2xl">{TESTIMONIALS[currentIndex].flag}</span>
+                      <span className="text-2xl">{testimonials[currentIndex].flag}</span>
                       <h4 className="font-bold text-neutral-900">
-                        {TESTIMONIALS[currentIndex].name}
+                        {testimonials[currentIndex].name}
                       </h4>
                     </div>
                     <p className="text-sm text-neutral-500">
-                      {TESTIMONIALS[currentIndex].program} at {TESTIMONIALS[currentIndex].university}
+                      {testimonials[currentIndex].program} at {testimonials[currentIndex].university}
                     </p>
                     <div className="flex items-center gap-1 mt-2">
-                      {[...Array(TESTIMONIALS[currentIndex].rating)].map((_, i) => (
+                      {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-accent-500 text-accent-500" />
                       ))}
                     </div>
@@ -133,7 +139,7 @@ export function Testimonials() {
 
           {/* Dots */}
           <div className="flex items-center justify-center gap-2 mt-8">
-            {TESTIMONIALS.map((_, index) => (
+            {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {

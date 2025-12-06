@@ -175,7 +175,7 @@ function MapSection() {
             Our Location
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-neutral-600">
-            Based in Jingzhou, Hubei Province, China
+            Based in China
           </motion.p>
         </motion.div>
 
@@ -189,8 +189,7 @@ function MapSection() {
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100">
             <div className="text-center">
               <MapPin className="w-16 h-16 text-primary-400 mx-auto mb-4" />
-              <p className="text-primary-600 font-medium">Jingzhou, Hubei, China</p>
-              <p className="text-sm text-neutral-500 mt-2">Map integration available</p>
+                                  <p className="text-primary-600 font-medium">China</p>              <p className="text-sm text-neutral-500 mt-2">Map integration available</p>
             </div>
           </div>
         </motion.div>

@@ -57,7 +57,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-neutral-400 text-sm leading-relaxed">
-              {COMPANY_INFO.tagline}. Your trusted partner for studying in China, based on the ground in Jingzhou, Hubei.
+              {COMPANY_INFO.tagline}. Your trusted partner for studying in China, based on the ground in China.
             </p>
             
             {/* Newsletter */}
