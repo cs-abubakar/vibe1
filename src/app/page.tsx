@@ -14,10 +14,9 @@ import {
 import { prisma } from "@/lib/db"
 
 export default async function HomePage() {
-  const heroContent = await prisma.pageContent.findUnique({
-    where: { key: 'home_hero' }
-  })
-
+  const heroContent = await prisma.pageContent.findUnique({ where: { key: 'home_hero' } })
+  const aboutContent = await prisma.pageContent.findUnique({ where: { key: 'about_preview' } })
+  
   const universities = await prisma.university.findMany({
     take: 10,
     orderBy: { createdAt: 'desc' }
@@ -25,6 +24,12 @@ export default async function HomePage() {
   
   const testimonials = await prisma.testimonial.findMany({
     take: 5,
+    orderBy: { createdAt: 'desc' }
+  })
+
+  const blogPosts = await prisma.blogPost.findMany({
+    take: 3,
+    where: { published: true },
     orderBy: { createdAt: 'desc' }
   })
   
@@ -36,14 +41,16 @@ export default async function HomePage() {
         image={heroContent?.image || undefined}
       />
       <StatsBar />
-      <AboutPreview />
+      <AboutPreview 
+        image={aboutContent?.image || undefined}
+      />
       <MBBSSpotlight />
       <WhyChooseUs />
       <ProgramsOverview />
       <CountryGateway />
       <Testimonials testimonials={testimonials} />
       <UniversitiesCarousel universities={universities} />
-      <BlogPreview />
+      <BlogPreview posts={blogPosts} />
       <FinalCTA />
     </>
   )

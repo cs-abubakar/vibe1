@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Target, Users, Globe, ArrowRight, Building2 } from "lucide-react"
+import { Target, Users, Globe, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/useInView"
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/lib/animations"
+import { fadeInUp, fadeInRight, staggerContainer } from "@/lib/animations"
 
 const values = [
   {
@@ -25,7 +25,11 @@ const values = [
   },
 ]
 
-export function AboutPreview() {
+export function AboutPreview({ 
+  image = "https://placehold.co/800x600/e0f2fe/1e40af?text=GEC+Office+Team" 
+}: { 
+  image?: string 
+}) {
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2 })
 
   return (
@@ -103,7 +107,7 @@ export function AboutPreview() {
           >
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary-100 to-secondary-100 shadow-2xl shadow-primary-100/50 relative group">
               <img 
-                src="https://placehold.co/800x600/e0f2fe/1e40af?text=GEC+Office+Team" 
+                src={image}
                 alt="GEC Team" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

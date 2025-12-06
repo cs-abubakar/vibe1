@@ -114,7 +114,7 @@ async function main() {
     })
   }
 
-  // 4. Seed Page Content (Home Hero)
+  // 4. Seed Page Content
   await prisma.pageContent.upsert({
     where: { key: 'home_hero' },
     update: {},
@@ -123,6 +123,16 @@ async function main() {
       title: 'Your Medical Career Begins Here',
       subtitle: 'China-based education consultants helping students from Pakistan, Yemen, Saudi Arabia & Africa achieve their MBBS dreams at world-class universities.',
       image: 'https://placehold.co/800x600/1e293b/ffffff?text=Future+Doctor+in+China'
+    }
+  })
+
+  await prisma.pageContent.upsert({
+    where: { key: 'about_preview' },
+    update: {},
+    create: {
+      key: 'about_preview',
+      title: 'Who We Are',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop' // Team/Office image
     }
   })
 

@@ -35,6 +35,7 @@ export default function AdminLayout({
           <NavItem href="/admin/testimonials" icon={MessageSquare}>Testimonials</NavItem>
           <NavItem href="/admin/blogs" icon={BookOpen}>Blog Posts</NavItem>
           <NavItem href="/admin/leads" icon={Users}>Leads</NavItem>
+          <NavItem href="/admin/content" icon={Settings}>Site Content</NavItem>
         </nav>
 
         <div className="p-4 border-t border-neutral-100">
