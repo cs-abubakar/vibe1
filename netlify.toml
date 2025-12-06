@@ -1,9 +1,11 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  # The Next.js Runtime automatically configures the publish directory.
+  # No need to specify 'publish = ".next"' manually.
 
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"

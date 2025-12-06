@@ -79,30 +79,24 @@ export function WhyChooseUs() {
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {features.map((feature, index) => (
-            <motion.div key={feature.title} variants={fadeInUp}>
-              <Card hover className="h-full p-6">
+            <motion.div key={feature.title} variants={fadeInUp} className="h-full">
+              <div className="h-full p-8 bg-white border border-neutral-100 rounded-2xl hover:shadow-xl hover:shadow-neutral-200/50 hover:-translate-y-1 transition-all duration-300 group">
                 <div
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${
                     feature.color === "primary"
-                      ? "bg-primary-100"
-                      : "bg-secondary-100"
+                      ? "bg-primary-50 text-primary-600 group-hover:bg-primary-600 group-hover:text-white"
+                      : "bg-secondary-50 text-secondary-600 group-hover:bg-secondary-600 group-hover:text-white"
                   }`}
                 >
-                  <feature.icon
-                    className={`w-7 h-7 ${
-                      feature.color === "primary"
-                        ? "text-primary-600"
-                        : "text-secondary-600"
-                    }`}
-                  />
+                  <feature.icon className="w-8 h-8 transition-colors duration-300" />
                 </div>
-                <h3 className="text-lg font-bold text-neutral-900 mb-3">
+                <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-neutral-600 text-sm leading-relaxed">
+                <p className="text-neutral-600 leading-relaxed">
                   {feature.description}
                 </p>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </motion.div>

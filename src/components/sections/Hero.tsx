@@ -149,19 +149,28 @@ export function Hero() {
               <div className="absolute -inset-4 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-[2.5rem] blur-2xl" />
 
               {/* Main Card */}
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-2xl">
-                {/* Inner Pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
+                <img 
+                  src="https://placehold.co/800x600/1e293b/ffffff?text=Future+Doctor+in+China" 
+                  alt="Medical Student in China"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80" />
 
-                {/* Content */}
-                <div className="absolute inset-0 flex items-center justify-center p-10">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-xl shadow-emerald-500/30">
-                      <GraduationCap className="w-12 h-12 text-white" />
+                {/* Content Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                      <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3">World-Class Medical Education</h3>
-                    <p className="text-slate-400 text-sm max-w-xs">Partner universities recognized by WHO, PMDC, and global medical councils</p>
+                    <div>
+                      <p className="text-white font-bold text-lg leading-tight">MBBS in China</p>
+                      <p className="text-emerald-400 text-sm font-medium">Admissions Open 2025</p>
+                    </div>
                   </div>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    Join thousands of international students in world-class medical universities.
+                  </p>
                 </div>
               </div>
 

@@ -38,13 +38,16 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 text-white">
+    <footer className="relative bg-neutral-900 text-white overflow-hidden">
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
       {/* Main Footer */}
-      <div className="container py-16">
+      <div className="container relative z-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
-          <div>
-            <Link href="/" className="flex items-center gap-3 mb-6">
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg shadow-primary-600/25">
                 <span className="text-white font-bold text-xl">G</span>
               </div>
@@ -53,9 +56,25 @@ export function Footer() {
                 <p className="text-xs text-neutral-400">Global Educational Consultants</p>
               </div>
             </Link>
-            <p className="text-neutral-400 text-sm mb-6 leading-relaxed">
+            <p className="text-neutral-400 text-sm leading-relaxed">
               {COMPANY_INFO.tagline}. Your trusted partner for studying in China, based on the ground in Jingzhou, Hubei.
             </p>
+            
+            {/* Newsletter */}
+            <div className="pt-2">
+              <p className="text-sm font-medium text-white mb-2">Stay Updated</p>
+              <div className="flex gap-2">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-primary-500 w-full transition-colors"
+                />
+                <button className="bg-primary-600 hover:bg-primary-500 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors">
+                  Join
+                </button>
+              </div>
+            </div>
+
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (

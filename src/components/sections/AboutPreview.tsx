@@ -101,14 +101,13 @@ export function AboutPreview() {
             animate={isInView ? "visible" : "hidden"}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary-100 to-secondary-100 shadow-2xl shadow-primary-100/50">
-              {/* Placeholder for actual team/office image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Building2 className="w-20 h-20 text-primary-300 mx-auto mb-4" />
-                  <p className="text-primary-400 text-sm">Team/Office Image</p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary-100 to-secondary-100 shadow-2xl shadow-primary-100/50 relative group">
+              <img 
+                src="https://placehold.co/800x600/e0f2fe/1e40af?text=GEC+Office+Team" 
+                alt="GEC Team" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
             {/* Floating Badge */}

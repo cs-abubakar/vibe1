@@ -107,10 +107,10 @@ export function ProgramsOverview() {
                   <div className="relative z-10">
                     <div className="flex items-start justify-between mb-4">
                       <div
-                        className={`w-14 h-14 rounded-xl flex items-center justify-center ${
+                        className={`w-14 h-14 rounded-xl flex items-center justify-center shadow-lg border border-white/50 ${
                           program.color === "primary"
-                            ? "bg-primary-100"
-                            : "bg-secondary-100"
+                            ? "bg-primary-100 shadow-primary-100/50"
+                            : "bg-secondary-100 shadow-secondary-100/50"
                         }`}
                       >
                         <program.icon

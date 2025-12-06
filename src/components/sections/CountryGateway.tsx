@@ -11,7 +11,7 @@ export function CountryGateway() {
   const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.2 })
 
   return (
-    <section ref={ref} className="py-20 md:py-28 bg-white">
+    <section ref={ref} className="py-20 md:py-28 bg-gradient-to-b from-white to-neutral-50">
       <div className="container">
         {/* Header */}
         <motion.div

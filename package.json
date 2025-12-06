@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.15.1",
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

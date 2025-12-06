@@ -40,7 +40,7 @@ export const NAV_LINKS = [
   },
   {
     label: "Countries",
-    href: "#",
+    href: "/countries",
     children: [
       { label: "Pakistan", href: "/countries/pakistan" },
       { label: "Yemen", href: "/countries/yemen" },
@@ -64,7 +64,7 @@ export const UNIVERSITIES = [
     ranking: "Top 300 in China",
     pmdc: true,
     who: true,
-    image: "/images/universities/yangtze.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Yangtze+University",
     description: "One of the oldest and most prestigious universities in Hubei Province.",
   },
   {
@@ -75,7 +75,7 @@ export const UNIVERSITIES = [
     ranking: "Top Medical University",
     pmdc: true,
     who: true,
-    image: "/images/universities/binzhou.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Binzhou+Medical",
     description: "Renowned for its medical programs and modern facilities.",
   },
   {
@@ -86,7 +86,7 @@ export const UNIVERSITIES = [
     ranking: "Top 250 in China",
     pmdc: true,
     who: true,
-    image: "/images/universities/ctgu.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Three+Gorges+Univ",
     description: "Located near the famous Three Gorges Dam with excellent facilities.",
   },
   {
@@ -97,7 +97,7 @@ export const UNIVERSITIES = [
     ranking: "Top Medical School",
     pmdc: true,
     who: true,
-    image: "/images/universities/hubei-medicine.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Hubei+Medicine",
     description: "Specialized in medical education with affiliated hospitals.",
   },
   {
@@ -108,7 +108,7 @@ export const UNIVERSITIES = [
     ranking: "Double First-Class University",
     pmdc: true,
     who: true,
-    image: "/images/universities/nanchang.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Nanchang+Univ",
     description: "A comprehensive university with strong medical programs.",
   },
   {
@@ -119,7 +119,7 @@ export const UNIVERSITIES = [
     ranking: "Top Pharmaceutical",
     pmdc: true,
     who: true,
-    image: "/images/universities/guangdong-pharma.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Guangdong+Pharma",
     description: "Specialized in pharmaceutical and medical sciences.",
   },
   {
@@ -130,7 +130,7 @@ export const UNIVERSITIES = [
     ranking: "Top in Yunnan",
     pmdc: true,
     who: true,
-    image: "/images/universities/kunming.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Kunming+Univ",
     description: "Located in the spring city with excellent climate.",
   },
   {
@@ -141,7 +141,7 @@ export const UNIVERSITIES = [
     ranking: "Affordable Option",
     pmdc: true,
     who: true,
-    image: "/images/universities/jiamusi.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Jiamusi+Univ",
     description: "Affordable education in Northeast China.",
   },
   {
@@ -152,7 +152,7 @@ export const UNIVERSITIES = [
     ranking: "Growing Medical School",
     pmdc: true,
     who: true,
-    image: "/images/universities/gannan.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Gannan+Medical",
     description: "Known for quality medical education at affordable costs.",
   },
   {
@@ -163,7 +163,7 @@ export const UNIVERSITIES = [
     ranking: "211 Project University",
     pmdc: true,
     who: true,
-    image: "/images/universities/shihezi.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Shihezi+Univ",
     description: "Part of China's 211 project with quality education.",
   },
   {
@@ -174,7 +174,7 @@ export const UNIVERSITIES = [
     ranking: "Strong Sciences",
     pmdc: true,
     who: true,
-    image: "/images/universities/shenyang.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Shenyang+Chem",
     description: "Excellence in science and technology education.",
   },
   {
@@ -185,7 +185,7 @@ export const UNIVERSITIES = [
     ranking: "Comprehensive",
     pmdc: true,
     who: true,
-    image: "/images/universities/hubei-arts.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Hubei+Arts",
     description: "Comprehensive education in historic Xiangyang city.",
   },
   {
@@ -196,7 +196,7 @@ export const UNIVERSITIES = [
     ranking: "Growing Institution",
     pmdc: true,
     who: true,
-    image: "/images/universities/hubei-sci-tech.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Hubei+Sci+Tech",
     description: "Modern facilities in the scenic city of Xianning.",
   },
   {
@@ -207,7 +207,7 @@ export const UNIVERSITIES = [
     ranking: "Historic Location",
     pmdc: true,
     who: true,
-    image: "/images/universities/jingangshan.jpg",
+    image: "https://placehold.co/600x400/e0f2fe/0369a1?text=Jingangshan",
     description: "Located in the revolutionary base area with rich history.",
   },
 ]
@@ -222,7 +222,7 @@ export const TESTIMONIALS = [
     university: "Yangtze University",
     quote: "GEC made my dream of studying medicine possible. Their team was with me every step - from application to settling in China. The support is exceptional!",
     rating: 5,
-    image: "/images/testimonials/student1.jpg",
+    image: "https://placehold.co/150x150/dcfce7/166534?text=AK",
   },
   {
     id: 2,
@@ -233,7 +233,7 @@ export const TESTIMONIALS = [
     university: "Binzhou Medical University",
     quote: "The transparency and honesty of GEC set them apart. No hidden costs, no false promises - just genuine guidance. I recommend them to everyone.",
     rating: 5,
-    image: "/images/testimonials/student2.jpg",
+    image: "https://placehold.co/150x150/dcfce7/166534?text=FA",
   },
   {
     id: 3,
@@ -244,7 +244,7 @@ export const TESTIMONIALS = [
     university: "China Three Gorges University",
     quote: "Being from Ghana, I was worried about studying so far from home. GEC's support made the transition smooth and stress-free. Forever grateful!",
     rating: 5,
-    image: "/images/testimonials/student3.jpg",
+    image: "https://placehold.co/150x150/dcfce7/166534?text=EO",
   },
   {
     id: 4,
@@ -255,7 +255,7 @@ export const TESTIMONIALS = [
     university: "Hubei University of Medicine",
     quote: "Professional service from start to finish. The team's knowledge about Chinese universities is impressive. They found the perfect match for me.",
     rating: 5,
-    image: "/images/testimonials/student4.jpg",
+    image: "https://placehold.co/150x150/dcfce7/166534?text=SA",
   },
   {
     id: 5,
@@ -266,7 +266,7 @@ export const TESTIMONIALS = [
     university: "Nanchang University",
     quote: "From visa guidance to airport pickup, GEC handled everything perfectly. Now I'm successfully studying at one of China's best universities!",
     rating: 5,
-    image: "/images/testimonials/student5.jpg",
+    image: "https://placehold.co/150x150/dcfce7/166534?text=IM",
   },
 ]
 
