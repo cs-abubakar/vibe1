@@ -10,13 +10,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { createLead } from "@/lib/actions"
 
 const leadSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
-  whatsapp: z.string().min(10, "Please enter a valid WhatsApp number"),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  phone: z.string().min(10, "Please enter a valid WhatsApp number"),
   email: z.string().email("Please enter a valid email"),
   country: z.string().min(1, "Please select your country"),
-  programInterest: z.string().min(1, "Please select a program"),
+  program: z.string().min(1, "Please select a program"),
   message: z.string().optional(),
 })
 
@@ -48,13 +49,6 @@ const programOptions = [
   { value: "other", label: "Other" },
 ]
 
-const startOptions = [
-  { value: "2025-september", label: "September 2025" },
-  { value: "2025-march", label: "March 2025" },
-  { value: "2026", label: "2026" },
-  { value: "not-sure", label: "Not Sure Yet" },
-]
-
 export function LeadForm({
   variant = "default",
   title = "Get Free Consultation",
@@ -63,6 +57,7 @@ export function LeadForm({
 }: LeadFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [serverError, setServerError] = useState<string | null>(null)
 
   const {
     register,
@@ -75,20 +70,29 @@ export function LeadForm({
 
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true)
+    setServerError(null)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    const formData = new FormData()
+    formData.append("name", data.name)
+    formData.append("email", data.email)
+    formData.append("phone", data.phone)
+    formData.append("program", data.program)
+    
+    // Append country to message for context
+    const fullMessage = `Country: ${data.country}\n${data.message || ""}`
+    formData.append("message", fullMessage)
 
-    console.log("Form submitted:", data)
-    setIsSuccess(true)
-    reset()
+    const result = await createLead(null, formData)
 
-    if (onSuccess) {
-      onSuccess()
+    if (result?.success) {
+      setIsSuccess(true)
+      reset()
+      if (onSuccess) onSuccess()
+      setTimeout(() => setIsSuccess(false), 8000)
+    } else {
+      setServerError(result?.message || "Something went wrong.")
     }
-
-    // Reset success state after delay
-    setTimeout(() => setIsSuccess(false), 5000)
+    
     setIsSubmitting(false)
   }
 
@@ -138,14 +142,14 @@ export function LeadForm({
         <div className={isLanding ? "grid grid-cols-1 gap-4" : ""}>
           <Input
             placeholder="Full Name *"
-            {...register("fullName")}
-            error={errors.fullName?.message}
+            {...register("name")}
+            error={errors.name?.message}
           />
 
           <Input
             placeholder="WhatsApp Number (with country code) *"
-            {...register("whatsapp")}
-            error={errors.whatsapp?.message}
+            {...register("phone")}
+            error={errors.phone?.message}
           />
 
           <Input
@@ -165,8 +169,8 @@ export function LeadForm({
           <Select
             placeholder="Program of Interest *"
             options={programOptions}
-            {...register("programInterest")}
-            error={errors.programInterest?.message}
+            {...register("program")}
+            error={errors.program?.message}
           />
 
           {!isCompact && (
@@ -177,6 +181,12 @@ export function LeadForm({
             />
           )}
         </div>
+
+        {serverError && (
+            <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
+              {serverError}
+            </div>
+        )}
 
         <Button
           type="submit"
