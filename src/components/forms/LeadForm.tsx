@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { createLead } from "@/lib/actions"
 
 const leadSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -57,7 +56,6 @@ export function LeadForm({
 }: LeadFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [serverError, setServerError] = useState<string | null>(null)
 
   const {
     register,
@@ -70,28 +68,14 @@ export function LeadForm({
 
   const onSubmit = async (data: LeadFormData) => {
     setIsSubmitting(true)
-    setServerError(null)
-
-    const formData = new FormData()
-    formData.append("name", data.name)
-    formData.append("email", data.email)
-    formData.append("phone", data.phone)
-    formData.append("program", data.program)
     
-    // Append country to message for context
-    const fullMessage = `Country: ${data.country}\n${data.message || ""}`
-    formData.append("message", fullMessage)
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000))
 
-    const result = await createLead(null, formData)
-
-    if (result?.success) {
-      setIsSuccess(true)
-      reset()
-      if (onSuccess) onSuccess()
-      setTimeout(() => setIsSuccess(false), 8000)
-    } else {
-      setServerError(result?.message || "Something went wrong.")
-    }
+    setIsSuccess(true)
+    reset()
+    if (onSuccess) onSuccess()
+    setTimeout(() => setIsSuccess(false), 8000)
     
     setIsSubmitting(false)
   }
@@ -181,12 +165,6 @@ export function LeadForm({
             />
           )}
         </div>
-
-        {serverError && (
-            <div className="p-3 bg-red-50 text-red-600 text-sm rounded-lg">
-              {serverError}
-            </div>
-        )}
 
         <Button
           type="submit"

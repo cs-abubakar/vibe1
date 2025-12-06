@@ -11,46 +11,20 @@ import {
   BlogPreview,
   FinalCTA,
 } from "@/components/sections"
-import { prisma } from "@/lib/db"
 
-export default async function HomePage() {
-  const heroContent = await prisma.pageContent.findUnique({ where: { key: 'home_hero' } })
-  const aboutContent = await prisma.pageContent.findUnique({ where: { key: 'about_preview' } })
-  
-  const universities = await prisma.university.findMany({
-    take: 10,
-    orderBy: { createdAt: 'desc' }
-  })
-  
-  const testimonials = await prisma.testimonial.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' }
-  })
-
-  const blogPosts = await prisma.blogPost.findMany({
-    take: 3,
-    where: { published: true },
-    orderBy: { createdAt: 'desc' }
-  })
-  
+export default function HomePage() {
   return (
     <>
-      <Hero 
-        title={heroContent?.title || undefined}
-        subtitle={heroContent?.subtitle || undefined}
-        image={heroContent?.image || undefined}
-      />
+      <Hero />
       <StatsBar />
-      <AboutPreview 
-        image={aboutContent?.image || undefined}
-      />
+      <AboutPreview />
       <MBBSSpotlight />
       <WhyChooseUs />
       <ProgramsOverview />
       <CountryGateway />
-      <Testimonials testimonials={testimonials} />
-      <UniversitiesCarousel universities={universities} />
-      <BlogPreview posts={blogPosts} />
+      <Testimonials />
+      <UniversitiesCarousel />
+      <BlogPreview />
       <FinalCTA />
     </>
   )
